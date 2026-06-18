@@ -8,7 +8,7 @@
 ![Create Task](Create-task.png)
 
 ## AI Task Generator
-![AI Task Generator](ai-task-generatar.png)
+![AI Task Generator](ai-task-generator.png)
 
 ## Edit Task
 ![Edit Task](EidtTask.png)
@@ -17,7 +17,7 @@
 ![Login Page](Login-user.png)
 
 ## Login Success
-![Login Success](loginSuccesfull.png)
+![Login Success](loginSuccessful.png)
 
 ## Register User
 ![Register User](register-user.png)
