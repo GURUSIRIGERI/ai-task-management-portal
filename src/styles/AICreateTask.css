@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.ai-container {
+    min-height: calc(100vh - 70px); /* Centers card perfectly below the navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8fafc; /* Minimalist background matching dashboard */
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.ai-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 16px -6px rgba(15, 23, 42, 0.05);
+    border: 1px solid #f1f5f9;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ai-card h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Added a nice subtle subtitle helper text */
+.ai-card::after {
+    content: "Describe what you want to achieve, and let our AI handle the breakdown.";
+    display: block;
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 28px;
+    line-height: 1.5;
+}
+
+.ai-card input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #334155;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.ai-card input[type="text"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.ai-card input[type="text"]::placeholder {
+    color: #94a3b8;
+}
+
+/* Modern AI action button styling with gradient */
+.ai-btn {
+    width: 100%;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.ai-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.ai-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Disabled/Loading State style */
+.ai-btn:disabled {
+    background: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}

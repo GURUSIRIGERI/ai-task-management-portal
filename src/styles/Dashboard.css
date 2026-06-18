@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f8fafc; /* Softer minimalist background */
+    color: #1e293b;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 16px;
+    margin-bottom: 30px;
+}
+
+.heading {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.task-count {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Responsive Grid Layout */
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+/* Modern Card Layout */
+.task-card {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.task-card-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.task-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+.task-desc {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+    flex-grow: 1; /* Pushes the actions to the exact bottom */
+}
+
+.task-meta {
+    background-color: #f8fafc;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.due-date-wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.meta-label {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.meta-value {
+    color: #334155;
+    font-weight: 600;
+}
+
+/* Badges styling */
+.badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Priority Accent Colors */
+.priority-high { background-color: #fef2f2; color: #ef4444; }
+.priority-medium { background-color: #fffbeb; color: #d97706; }
+.priority-low { background-color: #f0fdf4; color: #22c55e; }
+
+/* Status Accent Colors */
+.status-todo { background-color: #f1f5f9; color: #475569; }
+.status-in_progress { background-color: #eff6ff; color: #2563eb; }
+.status-done { background-color: #ecfdf5; color: #16a34a; }
+
+/* Buttons Style Layout */
+.task-card-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    flex: 1;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.edit-btn {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
+.edit-btn:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.delete-btn {
+    background-color: #fff5f5;
+    color: #e11d48;
+}
+
+.delete-btn:hover {
+    background-color: #ffe4e6;
+}
+
+/* Modal Box & Forms */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Solid darker fallback if blur fails */
+    background-color: rgba(15, 23, 42, 0.75); 
+    
+    /* Cross-browser vendor prefixes to prevent compilation crashes */
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.edit-form {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.edit-form h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 22px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.edit-form label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #334155;
+    transition: border-color 0.2s;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus,
+.edit-form select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row > div {
+    flex: 1;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.update-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+.update-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.cancel-btn {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+
+.cancel-btn:hover {
+    background-color: #e2e8f0;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 2px dashed #e2e8f0;
+    color: #64748b;
+    font-weight: 500;
+}
